@@ -16,13 +16,13 @@ public class Exercise2 {
      */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter a positive integer plz: ");
-        int n = in.nextInt();
-        System.out.println(sumDigits(n));
+        System.out.print("Enter a positive integer plz: "); //asks for a number
+        int n = in.nextInt(); //stores number
+        System.out.println(sumDigits(n)); //goes to method sumDigits
 
-        System.out.print("Enter a positive integer plz: ");
-        n = in.nextInt();
-        System.out.println(triangle(n));
+        System.out.print("Enter a positive integer plz: "); //asks for a number
+        n = in.nextInt(); //overwrites older number
+        System.out.println(triangle(n)); //goes to method triangle
 
         System.out.print("Enter a positive integer plz: ");
         n = in.nextInt();
@@ -38,7 +38,7 @@ public class Exercise2 {
         System.out.print("Enter a word plz: ");
         String s = in.nextLine();
         System.out.println(isPalindrome(s, s.length()));
-        
+
         System.out.print("Enter the number of bags plz: ");
         n = in.nextInt();
         int[] bags = new int[n];
@@ -52,26 +52,25 @@ public class Exercise2 {
     }
 
     static int sumDigits(int n) {
-        if (n < 10 && n >= 0) {
-            return n;
+        if (n <= 9 && n >= 0) {
+            return n; //returns the number once it is a single digit
         }
-        return n % 10 + sumDigits(n / 10);
+        return n % 10 + sumDigits(n / 10); //returns the ones column and the number without the last digit  
     }
 
     static int triangle(int n) {
-        if (n == 1) {
-            return 1;
-        } else {
-            return triangle(n - 1) + n;
+        if (n == 1 || n == 0) { //should the triangle be only one or zero levels tall
+            return n;  //the triangle must only contain the level number of blocks so return the level number
         }
+        return triangle(n - 1) + n; //returns current level num of blocks and the level before its num of blocks
     }
 
     static String binaryConvert(int n) {
-        if (n == 1) {
-            return "" + n;
-        } else {
-            return binaryConvert(n / 2) + n % 2;
+        if (n == 1 || n == 0) {
+            return "" + n; //if the entered number gets to 1 or 0, return itself
+            //0 will only be returned when the original entered number is 0
         }
+        return binaryConvert(n / 2) + n % 2; //
     }
 
     static String letters(int n, int b) {
@@ -87,11 +86,11 @@ public class Exercise2 {
             return "D";
         } else if (b > 14 && n == 14) {
             return "E";
-        } else if (b > 15 && n == 15){
-            return " F";
+        } else {
+            return "F";
         }
-        return "";
     }
+
     static String convert(int n, int b) {
         if (n >= 0 && n <= 9) {
             return "" + n;
@@ -120,8 +119,9 @@ public class Exercise2 {
         } else {
             return false;
         }
-        
+
     }
+
     static int marbles(int[] bags, int max) {
         if (bags.length == 0) {
             return 0;
