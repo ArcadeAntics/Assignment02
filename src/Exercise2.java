@@ -75,38 +75,38 @@ public class Exercise2 {
     }
 
     static String letters(int n, int b) {
-        if (n == 0 || n == b) {
+        if (n >= 0 && n <= 9) {
             return "" + n;
         } else if (b > 10 && n == 10) {
-            return " A";
-        } else if (b > 10 && n == 11) {
-            return " B";
-        } else if (b > 10 && n == 12) {
-            return " C";
-        } else if (b > 10 && n == 13) {
-            return " D";
-        } else if (b > 10 && n == 14) {
-            return " E";
-        } else if (b > 10 && n == 15) {
+            return "A";
+        } else if (b > 11 && n == 11) {
+            return "B";
+        } else if (b > 12 && n == 12) {
+            return "C";
+        } else if (b > 13 && n == 13) {
+            return "D";
+        } else if (b > 14 && n == 14) {
+            return "E";
+        } else if (b > 15 && n == 15){
             return " F";
         }
         return "";
     }
     static String convert(int n, int b) {
-        if (n == 0 || n == b) {
+        if (n >= 0 && n <= 9) {
             return "" + n;
         } else if (b > 10 && n == 10) {
-            return " A";
-        } else if (b > 10 && n == 11) {
-            return " B";
-        } else if (b > 10 && n == 12) {
-            return " C";
-        } else if (b > 10 && n == 13) {
-            return " D";
-        } else if (b > 10 && n == 14) {
-            return " E";
-        } else if (b > 10 && n == 15) {
-            return " F";
+            return "A";
+        } else if (b > 11 && n == 11) {
+            return "B";
+        } else if (b > 12 && n == 12) {
+            return "C";
+        } else if (b > 13 && n == 13) {
+            return "D";
+        } else if (b > 14 && n == 14) {
+            return "E";
+        } else if (b > 15 && n == 15) {
+            return "F";
         }
         return convert(n / b, b) + letters(n % b, b);
     }
